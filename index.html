@@ -880,7 +880,7 @@
 
         /* ปรับขนาดโลโก้ใน footer ให้กว้างใกล้เคียงคำว่า GRAKCU */
         .footer-main-logo {
-            width: 160px;
+            width: 128px;
             height: auto;
             margin-bottom: 10px;
             display: block;
@@ -1766,7 +1766,7 @@
                 });
             });
 
-            // 4. Form Submission Simulation (No Alert)
+            // 4. Form Submission Simulation (No Alert) -> เปลี่ยนเป็นส่งไป Google Sheets จริงๆ
             const orderForm = document.getElementById('orderForm');
             const successMsg = document.getElementById('successMessage');
 
@@ -1779,18 +1779,49 @@
                 submitBtn.innerText = 'กำลังส่งข้อมูล...';
                 submitBtn.disabled = true;
 
-                // Simulate API Call
-                setTimeout(() => {
+                // ดึงข้อมูลจากฟอร์ม
+                const packageSelect = document.getElementById('package');
+                const packageText = packageSelect.options[packageSelect.selectedIndex].text;
+                
+                // ใช้ FormData ส่งข้อมูล (เสถียรที่สุดสำหรับ Google Apps Script)
+                const formData = new FormData();
+                formData.append('package', packageText);
+                formData.append('name', document.getElementById('name').value);
+                formData.append('phone', document.getElementById('phone').value);
+                formData.append('address', document.getElementById('address').value);
+
+                // นำ URL ที่ได้จากขั้นตอน Deploy ของ Google Apps Script มาใส่ตรงนี้
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbwu5-1x-QJHLV_p4sRJVStPpJT8-AWlZRvyf74BymrCk2gmdRsUdWEXN80FsitKzvi2AQ/exec';
+
+                // ส่งข้อมูลไปที่ Google Sheets
+                fetch(scriptURL, {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => {
+                    // แสดงข้อความสำเร็จ
                     successMsg.style.display = 'block';
                     submitBtn.innerText = originalText;
                     submitBtn.disabled = false;
                     orderForm.reset();
 
-                    // Hide success message after 5 seconds
+                    // ซ่อนข้อความหลังจาก 5 วินาที
                     setTimeout(() => {
                         successMsg.style.display = 'none';
                     }, 5000);
-                }, 1500);
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    successMsg.style.display = 'block';
+                    successMsg.classList.replace('message-success', 'message-error');
+                    successMsg.style.backgroundColor = '#f8d7da';
+                    successMsg.style.color = '#721c24';
+                    successMsg.style.borderColor = '#f5c6cb';
+                    successMsg.innerHTML = '<i class="fas fa-exclamation-circle"></i> เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง หรือสั่งซื้อทาง LINE';
+                    
+                    submitBtn.innerText = originalText;
+                    submitBtn.disabled = false;
+                });
             });
 
             // 5. Scroll Fade-in Animation (Intersection Observer)
