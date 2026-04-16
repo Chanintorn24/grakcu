@@ -997,7 +997,10 @@
                 gap: 30px;
             }
             .hero-image-col { justify-content: center; padding-right: 0; }
-            .hero-text-col { align-items: center; text-align: center; }
+            .hero-text-col { 
+                align-items: center; 
+                text-align: center; 
+            }
             .hero-title, .hero-subtitle, .hero-desc { text-align: center; }
             .hero-buttons { justify-content: center; }
             .promo-box { padding: 40px 30px; }
@@ -1071,7 +1074,8 @@
                 <li><a href="#about" class="toggle-link" data-target="about">เกี่ยวกับเรา</a></li>
                 <li><a href="#faq" class="toggle-link" data-target="faq">คำถามที่พบบ่อย</a></li>
                 <li><a href="#contact" class="toggle-link" data-target="contact">ติดต่อเรา</a></li>
-                <li><a href="#order" class="text-gold">สั่งซื้อสินค้า</a></li>
+                <!-- ปรับให้ลิงก์เมนู "สั่งซื้อสินค้า" ทำงานเป็น Sub-page -->
+                <li><a href="#order" class="text-gold toggle-link" data-target="order">สั่งซื้อสินค้า</a></li>
             </ul>
             <div class="mobile-toggle" id="mobile-toggle">
                 <i class="fas fa-bars"></i>
@@ -1100,7 +1104,8 @@
                         สำหรับผู้ที่ต้องการดูแลสุขภาพระยะยาว
                     </p>
                     <div class="hero-buttons">
-                        <a href="#order" class="btn btn-gold"><i class="fas fa-shopping-cart"></i> สั่งซื้อทันที</a>
+                        <!-- ปรับให้ปุ่ม "สั่งซื้อทันที" ทำงานเป็น Sub-page -->
+                        <a href="#order" class="btn btn-gold toggle-link" data-target="order"><i class="fas fa-shopping-cart"></i> สั่งซื้อทันที</a>
                         <a href="#benefits" class="btn btn-outline-white">ดูข้อมูลเพิ่มเติม</a>
                     </div>
                 </div>
@@ -1308,6 +1313,45 @@
         </div>
     </section>
 
+    <!-- ================= BLOG SECTION ================= -->
+    <section class="section-padding bg-light main-section" id="blog">
+        <div class="container fade-in">
+            <h2>บทความสุขภาพ</h2>
+            <div class="blog-grid">
+                <!-- Blog 1 -->
+                <div class="blog-card">
+                    <div class="blog-img img1"></div>
+                    <div class="blog-content">
+                        <span class="blog-date">10 เมษายน 2026</span>
+                        <h4>เคล็ดลับฟื้นฟูร่างกายสำหรับผู้ชายวัย 40+</h4>
+                        <p>เมื่ออายุมากขึ้น ระบบเผาผลาญและการฟื้นฟูร่างกายย่อมลดลง มาดูวิธีเติมพลังให้กลับมาฟิตอีกครั้ง...</p>
+                        <a href="#article-1" class="read-more toggle-link" data-target="article-1">อ่านต่อ <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- Blog 2 -->
+                <div class="blog-card">
+                    <div class="blog-img img2"></div>
+                    <div class="blog-content">
+                        <span class="blog-date">5 เมษายน 2026</span>
+                        <h4>ทำความรู้จัก "ถั่งเช่า" และ "กระชายดำ"</h4>
+                        <p>สุดยอด 2 สมุนไพรคู่บุญที่ผู้ชายต้องรู้ สรรพคุณโดดเด่นในการบำรุงกำลังและระบบไหลเวียนโลหิต...</p>
+                        <a href="#article-2" class="read-more toggle-link" data-target="article-2">อ่านต่อ <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- Blog 3 -->
+                <div class="blog-card">
+                    <div class="blog-img img3"></div>
+                    <div class="blog-content">
+                        <span class="blog-date">28 มีนาคม 2026</span>
+                        <h4>สัญญาณเตือน! ร่างกายอ่อนล้าสะสม</h4>
+                        <p>ตื่นนอนแล้วไม่สดชื่น ปวดเมื่อยตามตัวง่าย นี่อาจเป็นสัญญาณเตือนว่าร่างกายคุณต้องการการดูแลอย่างเร่งด่วน...</p>
+                        <a href="#article-3" class="read-more toggle-link" data-target="article-3">อ่านต่อ <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ================= ABOUT US (SUB PAGE) ================= -->
     <section class="section-padding bg-light sub-page hidden-section" id="about">
         <div class="container fade-in">
@@ -1446,9 +1490,49 @@
         </div>
     </section>
 
-    <!-- ================= ORDER SECTION ================= -->
-    <section class="section-padding order-section main-section" id="order">
+    <!-- ================= ORDER SECTION (SUB PAGE) ================= -->
+    <!-- ปรับ Section นี้ให้เป็นหน้าย่อย (sub-page) และซ่อนจากหน้าหลัก (hidden-section) -->
+    <section class="section-padding order-section sub-page hidden-section" id="order">
         <div class="container fade-in">
+            
+            <!-- เพิ่มส่วน Header ช่องทางการสั่งซื้อ -->
+            <div class="text-center" style="margin-bottom: 40px; color: var(--white);">
+                <h3 style="font-size: 2.2rem; font-weight: 600; color: var(--primary); margin-bottom: 10px;">🛒 ช่องทางการสั่งซื้อสินค้ามี 3 รูปแบบ</h3>
+            </div>
+
+            <!-- กล่องช่องทางที่ 1 และ 2 -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 40px;">
+                <!-- Channel 1: LINE -->
+                <div style="background: var(--white); padding: 30px; border-radius: 15px; box-shadow: var(--shadow); border-top: 5px solid #00B900; display: flex; flex-direction: column;">
+                    <h4 style="color: #00B900; font-size: 1.3rem; margin-bottom: 15px;">1. สั่งผ่าน LINE Official Account (แนะนำ)</h4>
+                    <p style="color: var(--gray); margin-bottom: 10px;">สะดวก รวดเร็ว พร้อมสอบถามข้อมูลสินค้าเพิ่มเติมได้ทันทีกับแอดมิน</p>
+                    <p style="color: var(--dark); margin-bottom: 20px;"><strong>วิธีสั่ง:</strong> คลิกปุ่มด้านล่าง หรือ Scan QR เพื่อเพิ่มเพื่อน แล้วส่งรายการสินค้าที่ต้องการให้เจ้าหน้าที่ได้เลย</p>
+                    <div class="text-center" style="margin-top: auto; padding-top: 10px;">
+                        <!-- รูป QR Code (ให้เตรียมไฟล์รูปภาพ qr-line.png ไว้ในโฟลเดอร์ images) -->
+                        <img src="images/qr-line.png" alt="[Image of คิวอาร์โค้ดไลน์]" style="width: 150px; height: 150px; object-fit: cover; margin: 0 auto 15px; border-radius: 8px; border: 1px solid #eee; background: #f9f9f9;">
+                        <a href="https://line.me/R/ti/p/@GrakcuTH" target="_blank" class="btn" style="background-color: #00B900; color: white; width: 100%;"><i class="fab fa-line" style="font-size: 1.2rem; margin-right: 5px;"></i> สั่งซื้อผ่าน LINE @GrakcuTH</a>
+                    </div>
+                </div>
+
+                <!-- Channel 2: โทรศัพท์ -->
+                <div style="background: var(--white); padding: 30px; border-radius: 15px; box-shadow: var(--shadow); border-top: 5px solid var(--primary); display: flex; flex-direction: column;">
+                    <h4 style="color: var(--dark); font-size: 1.3rem; margin-bottom: 15px;">2. สั่งผ่านทางโทรศัพท์</h4>
+                    <p style="color: var(--gray); margin-bottom: 10px;">คุยกับเจ้าหน้าที่โดยตรง เพื่อขอคำแนะนำหรือสอบถามรายละเอียดเชิงลึก</p>
+                    <p style="color: var(--dark); margin-bottom: 20px;"><strong>วิธีสั่ง:</strong> โทรหาเราได้ในเวลาทำการ (09:00 - 18:00 น.)</p>
+                    <div class="text-center" style="margin-top: auto; padding-top: 10px;">
+                        <i class="fas fa-phone-volume" style="font-size: 3.5rem; color: var(--primary); margin-bottom: 25px;"></i>
+                        <a href="tel:0996356966" class="btn btn-outline-gold" style="width: 100%; font-size: 1.3rem;"><strong><i class="fas fa-phone-alt" style="margin-right: 5px; font-size: 1rem;"></i> 099-635-6966</strong></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Intro ช่องทางที่ 3 -->
+            <div class="text-center" style="margin-bottom: 30px; color: var(--white);">
+                <h4 style="font-size: 1.6rem; color: var(--primary); margin-bottom: 10px;">3. กรอกฟอร์มสั่งซื้อออนไลน์</h4>
+                <p style="font-size: 1.1rem; max-width: 800px; margin: 0 auto; color: #ddd;">หากคุณสะดวกให้เจ้าหน้าที่ติดต่อกลับเพื่อสรุปยอดและยืนยันการสั่งซื้อ กรุณากรอกข้อมูลด้านล่างนี้:</p>
+            </div>
+
+            <!-- กล่องโปรโมชั่นและฟอร์มเดิม -->
             <div class="order-container">
                 <!-- Promotion Box -->
                 <div class="promo-box">
@@ -1529,6 +1613,12 @@
                             <i class="fas fa-check-circle"></i> ขอบคุณสำหรับการสั่งซื้อ! เจ้าหน้าที่จะติดต่อกลับเพื่อยืนยันออเดอร์โดยเร็วที่สุดครับ
                         </div>
                     </form>
+
+                    <!-- เพิ่มหมายเหตุใต้ฟอร์ม -->
+                    <div style="margin-top: 30px; padding: 15px; background-color: rgba(212, 175, 55, 0.1); border-radius: 8px; border-left: 4px solid var(--primary);">
+                        <p style="font-size: 0.95rem; color: var(--dark); margin-bottom: 8px; line-height: 1.5;"><strong>หมายเหตุ:</strong> หลังจากส่งฟอร์มแล้ว เจ้าหน้าที่จะทำการติดต่อกลับทางเบอร์โทรศัพท์ที่คุณระบุไว้ภายใน 1-2 ชั่วโมง (ในเวลาทำการ) เพื่อยืนยันออเดอร์และแจ้งยอดชำระเงิน</p>
+                        <p style="font-size: 0.85rem; color: var(--gray); margin: 0;"><i class="fas fa-lock" style="color: var(--primary);"></i> ข้อมูลของคุณจะถูกเก็บเป็นความลับและใช้เพื่อการสั่งซื้อเท่านั้น</p>
+                    </div>
                 </div>
             </div>
             
@@ -1536,45 +1626,6 @@
                 * คำเตือน: เด็กและสตรีมีครรภ์ไม่ควรรับประทาน ไม่มีผลในการป้องกันหรือรักษาโรค<br>
                 ควรกินอาหารหลากหลายครบ 5 หมู่ ในสัดส่วนที่เหมาะสมเป็นประจำ
             </p>
-        </div>
-    </section>
-
-    <!-- ================= BLOG SECTION ================= -->
-    <section class="section-padding bg-light main-section" id="blog">
-        <div class="container fade-in">
-            <h2>บทความสุขภาพ</h2>
-            <div class="blog-grid">
-                <!-- Blog 1 -->
-                <div class="blog-card">
-                    <div class="blog-img img1"></div>
-                    <div class="blog-content">
-                        <span class="blog-date">10 เมษายน 2026</span>
-                        <h4>เคล็ดลับฟื้นฟูร่างกายสำหรับผู้ชายวัย 40+</h4>
-                        <p>เมื่ออายุมากขึ้น ระบบเผาผลาญและการฟื้นฟูร่างกายย่อมลดลง มาดูวิธีเติมพลังให้กลับมาฟิตอีกครั้ง...</p>
-                        <a href="#article-1" class="read-more toggle-link" data-target="article-1">อ่านต่อ <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <!-- Blog 2 -->
-                <div class="blog-card">
-                    <div class="blog-img img2"></div>
-                    <div class="blog-content">
-                        <span class="blog-date">5 เมษายน 2026</span>
-                        <h4>ทำความรู้จัก "ถั่งเช่า" และ "กระชายดำ"</h4>
-                        <p>สุดยอด 2 สมุนไพรคู่บุญที่ผู้ชายต้องรู้ สรรพคุณโดดเด่นในการบำรุงกำลังและระบบไหลเวียนโลหิต...</p>
-                        <a href="#article-2" class="read-more toggle-link" data-target="article-2">อ่านต่อ <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <!-- Blog 3 -->
-                <div class="blog-card">
-                    <div class="blog-img img3"></div>
-                    <div class="blog-content">
-                        <span class="blog-date">28 มีนาคม 2026</span>
-                        <h4>สัญญาณเตือน! ร่างกายอ่อนล้าสะสม</h4>
-                        <p>ตื่นนอนแล้วไม่สดชื่น ปวดเมื่อยตามตัวง่าย นี่อาจเป็นสัญญาณเตือนว่าร่างกายคุณต้องการการดูแลอย่างเร่งด่วน...</p>
-                        <a href="#article-3" class="read-more toggle-link" data-target="article-3">อ่านต่อ <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -1791,7 +1842,7 @@
                 formData.append('address', document.getElementById('address').value);
 
                 // นำ URL ที่ได้จากขั้นตอน Deploy ของ Google Apps Script มาใส่ตรงนี้
-                const scriptURL = 'https://script.google.com/macros/s/AKfycbwu5-1x-QJHLV_p4sRJVStPpJT8-AWlZRvyf74BymrCk2gmdRsUdWEXN80FsitKzvi2AQ/exec';
+                const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
 
                 // ส่งข้อมูลไปที่ Google Sheets
                 fetch(scriptURL, {
@@ -1856,7 +1907,7 @@
                     const targetEl = document.getElementById(targetId);
                     
                     if (targetEl) {
-                        // กรณีคลิกไปหน้า Sub Page (เกี่ยวกับเรา, คำถามที่พบบ่อย, ติดต่อเรา, บทความย่อย)
+                        // กรณีคลิกไปหน้า Sub Page (เกี่ยวกับเรา, คำถามที่พบบ่อย, ติดต่อเรา, บทความย่อย, หน้าสั่งซื้อสินค้า)
                         if (targetEl.classList.contains('sub-page')) {
                             e.preventDefault();
                             
@@ -1887,7 +1938,7 @@
                             }, 50);
 
                         } 
-                        // กรณีคลิกไปเมนูหน้าหลัก (หน้าหลัก, ประโยชน์, ส่วนประกอบ, สั่งซื้อ, บทความสุขภาพ)
+                        // กรณีคลิกไปเมนูหน้าหลัก (หน้าหลัก, ประโยชน์, ส่วนประกอบ, บทความสุขภาพ)
                         else if (targetEl.classList.contains('main-section')) {
                             e.preventDefault();
                             
