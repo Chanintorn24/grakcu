@@ -988,6 +988,22 @@
         /* ==========================================================================
            MEDIA QUERIES (Responsive)
            ========================================================================== */
+        
+        /* แท็บเล็ต แนวนอน (4:3) */
+        @media (max-width: 1180px) and (orientation: landscape) {
+            .hero {
+                background-image: url('images/hero-backgrund-4-3.png');
+            }
+        }
+
+        /* แท็บเล็ต แนวตั้ง (3:4) */
+        @media (max-width: 1024px) and (orientation: portrait) {
+            .hero {
+                background-image: url('images/hero-backgrund-3-4.png');
+                background-position: center;
+            }
+        }
+
         @media (max-width: 991px) {
             h2 { font-size: 2.2rem; }
             .hero-title { font-size: 2.8rem; }
@@ -1544,8 +1560,8 @@
                         <div class="price-item" style="flex-direction: column; align-items: flex-start; padding-bottom: 15px;">
                             <span class="price-name" style="font-weight: 600;">1. ชุดทดลอง :</span>
                             <div style="display: flex; justify-content: space-between; width: 100%; align-items: center; margin-top: 5px;">
-                                <span style="font-size: 1.05rem; color: #444;">1 กล่อง <small style="color: #666;">(ปกติ <del>450฿</del>)</small></span>
-                                <span class="price-value" style="font-size: 1.4rem;">420฿</span>
+                                <span style="font-size: 1.05rem; color: #444;">1 กล่อง <small style="color: #666;">(ปกติ <del>490฿</del>)</small></span>
+                                <span class="price-value" style="font-size: 1.4rem;">429฿</span>
                             </div>
                         </div>
                         
@@ -1558,8 +1574,8 @@
                             
                             <span class="price-name" style="font-weight: 700; color: #b30000;">2. ชุดประหยัด <span style="font-size: 1rem; color: #444; font-weight: 500;">(ทานได้ 1-2 เดือน) :</span></span>
                             <div style="display: flex; justify-content: space-between; width: 100%; align-items: center; margin-top: 5px;">
-                                <span style="font-size: 1.05rem; color: #444;">5 กล่อง <small style="color: #666;">(ปกติ <del>2,250฿</del>)</small></span>
-                                <span class="price-value" style="color: #b30000; font-size: 1.7rem;">2,000฿</span>
+                                <span style="font-size: 1.05rem; color: #444;">5 กล่อง <small style="color: #666;">(ปกติ <del>2,450฿</del>)</small></span>
+                                <span class="price-value" style="color: #b30000; font-size: 1.7rem;">2,100฿</span>
                             </div>
                         </div>
 
@@ -1567,8 +1583,8 @@
                         <div class="price-item" style="flex-direction: column; align-items: flex-start; border-bottom: none; padding-bottom: 0;">
                             <span class="price-name" style="font-weight: 600;">3. ชุดสุดคุ้ม <span style="font-size: 1rem; color: #444; font-weight: 500;">(ทานได้ 2-3 เดือน) :</span></span>
                             <div style="display: flex; justify-content: space-between; width: 100%; align-items: center; margin-top: 5px; flex-wrap: wrap;">
-                                <span style="font-size: 1.05rem; color: #444;">10 กล่อง <strong style="color: #dc3545;">&lt;แถมฟรี 1 กล่อง&gt;</strong> <small style="color: #666;">(ปกติ <del>4,500฿</del>)</small></span>
-                                <span class="price-value" style="font-size: 1.5rem;">4,200฿</span>
+                                <span style="font-size: 1.05rem; color: #444;">10 กล่อง <strong style="color: #dc3545;">&lt;แถมฟรี 1 กล่อง&gt;</strong> <small style="color: #666;">(ปกติ <del>4,900฿</del>)</small></span>
+                                <span class="price-value" style="font-size: 1.5rem;">4,290฿</span>
                             </div>
                         </div>
                     </div>
@@ -1589,9 +1605,9 @@
                             <label for="package">เลือกโปรโมชั่น *</label>
                             <select id="package" class="form-control" required>
                                 <option value="" disabled selected>-- กรุณาเลือกโปรโมชั่น --</option>
-                                <option value="set1">1. ชุดทดลอง 1 กล่อง - 420฿</option>
-                                <option value="set2">2. ชุดประหยัด 5 กล่อง - 2,000฿ (Best Seller)</option>
-                                <option value="set3">3. ชุดสุดคุ้ม 10 กล่อง แถม 1 กล่อง - 4,200฿</option>
+                                <option value="set1">1. ชุดทดลอง 1 กล่อง - 429฿</option>
+                                <option value="set2">2. ชุดประหยัด 5 กล่อง - 2,100฿ (Best Seller)</option>
+                                <option value="set3">3. ชุดสุดคุ้ม 10 กล่อง แถม 1 กล่อง - 4,290฿</option>
                             </select>
                         </div>
                         <div class="form-group">
